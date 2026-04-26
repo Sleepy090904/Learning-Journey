@@ -110,6 +110,70 @@ task.wait(1)   -- pausiert 1 Sekunde, gibt anderen Code Zeit zu laufen
 
 ---
 
+## Tables (Arrays)
+
+```lua
+local blocks = {
+    workspace.Block1,
+    workspace.Block2,
+}
+
+#blocks        -- Länge (wie .Length in C#)
+blocks[1]      -- Index-Zugriff — WICHTIG: startet bei 1, nicht 0!
+```
+
+---
+
+## Numerischer For-Loop
+
+```lua
+for i = 0, 5, 1 do    -- start, end, schritt
+    -- zählt: 0, 1, 2, 3, 4, 5
+end
+
+for i = 5, 0, -1 do   -- runterzählen mit negativer Schrittweite
+    -- ohne '-' würde der Loop übersprungen
+end
+```
+
+**C#-Vergleich:** `for (int i = 0; i <= 5; i++)`
+
+---
+
+## Iterator For-Loop
+
+```lua
+for _, part in partsArray do
+    -- '_' = Index ignorieren (Konvention für nicht benötigte Variablen)
+    -- 'part' = aktuelles Element
+end
+```
+
+**C#-Vergleich:** `foreach (var part in partsArray)`
+
+---
+
+## GetChildren()
+
+```lua
+local folder = workspace.MeinFolder
+local parts = folder:GetChildren()  -- alle Children als Table
+-- Vorteil: neuen Block in Folder → kein Code ändern nötig
+```
+
+---
+
+## workspace Shortcut
+
+```lua
+workspace.MeinBlock       -- Kurzform
+game.Workspace.MeinBlock  -- Langform (identisch)
+-- 'workspace' ist eine globale Variable, die Roblox vordefiniert
+-- Nur workspace hat diesen Shortcut, alles andere braucht game. oder GetService()
+```
+
+---
+
 ## while-Loop
 
 ```lua
@@ -142,4 +206,4 @@ end
 
 ---
 
-*Zuletzt aktualisiert: 24. April 2026*
+*Zuletzt aktualisiert: 26. April 2026*
